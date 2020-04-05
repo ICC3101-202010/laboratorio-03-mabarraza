@@ -6,13 +6,13 @@ namespace Laboratorio_3
         private string name;
         private string brand;
         private int price;
-        private int stock;
-        public Product(string name, string brand, int price, int stock)
+        public int Stock;
+        public Product(string name, string brand, int price, int Stock)
         {
             this.name = name;
             this.brand = brand;
             this.price = price;
-            this.stock = stock;
+            this.Stock = Stock;
         }
         public string Name{
             get { return name; }
@@ -24,10 +24,6 @@ namespace Laboratorio_3
         public int Price
         {
             get { return price; }
-        }
-        public int Stock
-        {
-            get { return stock; }
         }
     }
 }

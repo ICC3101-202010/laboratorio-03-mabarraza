@@ -1,7 +1,7 @@
 ﻿using System;
 namespace Laboratorio_3
 {
-    public class Worker:People
+    public class Worker : People
     {
         protected int salary;
         protected int schedule;
@@ -12,5 +12,14 @@ namespace Laboratorio_3
             this.schedule = schedule;
             this.position = position;
         }
+        public string Position
+        {
+            get { return position; }
+        }
     }
 }
+//3 cajeras
+//1 auxiliar
+//1 jefe
+//1 supervisor
+//1 empleado.
