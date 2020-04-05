@@ -37,6 +37,12 @@
     <Compile Include="ICreditcard.cs" />
     <Compile Include="IDebitcard.cs" />
     <Compile Include="ICash.cs" />
+    <Compile Include="Worker.cs" />
+    <Compile Include="Boss.cs" />
+    <Compile Include="Gualmart.cs" />
+    <Compile Include="Cashier.cs" />
+    <Compile Include="Product.cs" />
+    <Compile Include="Inventory.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

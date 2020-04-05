@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Laboratorio_3
 {
-    public class Customer:People,ICreditcard,ICreditcard,ICash
+    public class Customer:People,ICreditcard,IDebitcard,ICash
     {
         protected List<string> LCustomers;
         private int PaymentMethod { get; set; }
@@ -24,7 +24,7 @@ namespace Laboratorio_3
         {
             Console.WriteLine("Yo pago con efectivo");
         }
-        public bool Buy() //function too determine if the person buys or not
+        /*public bool Buy() //function too determine if the person buys or not
         {
             switch (PaymentMethod) {
                 case 1:
@@ -61,6 +61,6 @@ namespace Laboratorio_3
             else {
                 return false;
             }
-        }
+        }*/
     }
 }

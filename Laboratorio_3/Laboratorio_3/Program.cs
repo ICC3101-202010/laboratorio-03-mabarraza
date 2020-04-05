@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Laboratorio_3
 {
@@ -6,8 +7,22 @@ namespace Laboratorio_3
     {
         public static void Main(string[] args)
         {
-            People ppl = new People("Miguel", "Barraza", "19361024.2", "Chileno");
-            Console.WriteLine("Hola soy " + ppl.Name +" " +  ppl.Lastname + " mi rut es " + ppl.ID + " y soy " + ppl.Nationality);
+            bool control = true;
+            Inventory inv = new Inventory();
+            while (control) { 
+                int[,] superprod_num = { { 1, 2 }, { 4, 5 }, { 7, 8 }, { 10, 11 }, { 13, 14 }, { 16, 17 } };
+                string[,] superprod_st = { { "Aceite", "cd" }, { "Atun", "gh" }, { "Arroz", "kl" }, { "Azucar", "op" }, { "Fideos", "st" }, { "Papel Higienico", "wx" } };
+                for (int i = 0; i < 6; i++)
+                {
+                    Product stockgen = new Product(superprod_st[i, 0], superprod_st[i, 1], superprod_num[i, 0], superprod_num[i, 1]);
+                    inv.AddProduct(stockgen.Name, stockgen.Brand, stockgen.Price, stockgen.Price);
+                }
+                control = false;
+            }
+            foreach(Product k in inv.Lproducts)
+            {
+                Console.WriteLine(k.Name);
+            }
         }
     }
 }
