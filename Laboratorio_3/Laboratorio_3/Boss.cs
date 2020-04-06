@@ -8,10 +8,11 @@ namespace Laboratorio_3
         }
         public bool HireWorker(int sl, int sch, string pos, int workersnumb, Gualmart super)
         {
-            int count = 0;
-            if (workersnumb == 7)
+            int morningshift = 0;
+            int eveningshift = 0;
+            if (workersnumb == 12)
             {
-                Console.WriteLine("Lo siento no estamos contratando.");
+                Console.WriteLine("Lo siento no estamos contratando.\n");
                 return false;
             }
             else
@@ -22,32 +23,37 @@ namespace Laboratorio_3
                     {
                         if (pos == w.Position)
                         {
-                            count++;
+                            switch (sch)
+                            {
+                                case 8:
+                                    morningshift++;
+                                    break;
+                                case 16:
+                                    eveningshift++;
+                                    break;
+                                default:
+                                    Console.WriteLine("Lo Sentimos pero no necesitmos personal a esa hora.\n");
+                                    return false;
+                            }
                         }
                     }
-                    if (count < 3)
+                    if ((morningshift < 3)||(eveningshift<3))
                     {
-                        if ((380 <= sl) && (sl <= 500))
+                        if (sl <= 500000)
                         {
-                            if ((8 <= sch) && (sch <= 14))
-                            {
-                                return true;
-                            }
-                            else
-                            {
-                                Console.WriteLine("Lo Sentimos pero no necesitmos personal a esa hora.");
-                                return false;
-                            }
+
+                            Console.WriteLine("Contratado!\n");
+                            return true;
                         }
                         else
                         {
-                            Console.WriteLine("Lo sentimos pero no ofrecemos ese puesto de trabajo por ese sueldo");
+                            Console.WriteLine("Lo sentimos pero no ofrecemos ese puesto de trabajo por ese sueldo\n");
                             return false;
                         }
                     }
                     else
                     {
-                        Console.WriteLine("Lo sentimos no necesitamos empleados en esa area.");
+                        Console.WriteLine("Lo sentimos no necesitamos empleados en esa area.\n");
                         return false;
                     }
                 }
@@ -55,33 +61,34 @@ namespace Laboratorio_3
                 {
                     foreach (Worker w in super.Lwork)
                     {
-                        if (pos == w.Position)
+                        switch (sch)
                         {
-                            count++;
+                            case 8:
+                                morningshift++;
+                                break;
+                            case 16:
+                                eveningshift++;
+                                break;
+                            default:
+                                Console.WriteLine("Lo Sentimos pero no necesitmos personal a esa hora.\n");
+                                return false;
                         }
                     }
-                    if (count == 0)
+                    if ((morningshift == 0) || (eveningshift == 0))
                     {
-                        if ((300 <= sl) && (sl <= 400))
+                        if (sl <= 400000)
                         {
-                            if ((8 <= sch) && (sch <= 14))
-                            {
-                                return true;
-                            }
-                            else
-                            {
-                                Console.WriteLine("Lo Sentimos pero no necesitmos personal a esa hora.");
-                                return false;
-                            }
+                            Console.WriteLine("Contratado!\n");
+                            return true;
                         }
                         else
                         {
-                            Console.WriteLine("Lo sentimos pero no ofrecemos ese puesto de trabajo por ese sueldo");
+                            Console.WriteLine("Lo sentimos pero no ofrecemos ese puesto de trabajo por ese sueldo\n");
                             return false;
                         }
                     }
                     else {
-                        Console.WriteLine("Lo sentimos no necesitamos empleados en esa area.");
+                        Console.WriteLine("Lo sentimos no necesitamos empleados en esa area.\n");
                         return false;
                     }
                 }
@@ -89,33 +96,34 @@ namespace Laboratorio_3
                 {
                     foreach (Worker w in super.Lwork)
                     {
-                        if (pos == w.Position)
+                        switch (sch)
                         {
-                            count++;
+                            case 8:
+                                morningshift++;
+                                break;
+                            case 16:
+                                eveningshift++;
+                                break;
+                            default:
+                                Console.WriteLine("Lo Sentimos pero no necesitmos personal a esa hora.\n");
+                                return false;
                         }
                     }
-                    if (count == 0)
+                    if ((morningshift == 0) || (eveningshift == 0))
                     {
-                        if ((600 <= sl) && (sl <= 800))
+                        if (sl <= 800000)
                         {
-                            if ((8 <= sch) && (sch <= 14))
-                            {
-                                return true;
-                            }
-                            else
-                            {
-                                Console.WriteLine("Lo Sentimos pero no necesitmos personal a esa hora.");
-                                return false;
-                            }
+                            Console.WriteLine("Contratado!\n");
+                            return true;
                         }
                         else
                         {
-                            Console.WriteLine("Lo sentimos pero no ofrecemos ese puesto de trabajo por ese sueldo");
+                            Console.WriteLine("Lo sentimos pero no ofrecemos ese puesto de trabajo por ese sueldo\n");
                             return false;
                         }
                     }
                     else {
-                        Console.WriteLine("Lo sentimos no necesitamos empleados en esa area.");
+                        Console.WriteLine("Lo sentimos no necesitamos empleados en esa area.\n");
                         return false;
                     }
                 }
@@ -123,39 +131,40 @@ namespace Laboratorio_3
                 {
                     foreach (Worker w in super.Lwork)
                     {
-                        if (pos == w.Position)
+                        switch (sch)
                         {
-                            count++;
+                            case 8:
+                                morningshift++;
+                                break;
+                            case 16:
+                                eveningshift++;
+                                break;
+                            default:
+                                Console.WriteLine("Lo Sentimos pero no necesitmos personal a esa hora.\n");
+                                return false;
                         }
                     }
-                    if (count == 0)
+                    if ((morningshift == 0) || (eveningshift == 0))
                     {
-                        if ((380 <= sl) && (sl <= 500))
+                        if (sl <= 500000)
                         {
-                            if ((8 <= sch) && (sch <= 14))
-                            {
-                                return true;
-                            }
-                            else
-                            {
-                                Console.WriteLine("Lo Sentimos pero no necesitmos personal a esa hora.");
-                                return false;
-                            }
+                            Console.WriteLine("Contratado!\n");
+                            return true;
                         }
                         else {
-                            Console.WriteLine("Lo sentimos pero no ofrecemos ese puesto de trabajo por ese sueldo");
+                            Console.WriteLine("Lo sentimos pero no ofrecemos ese puesto de trabajo por ese sueldo\n");
                             return false;
                         }
                     }
                     else
                     {
-                        Console.WriteLine("Lo sentimos no necesitamos empleados en esa area.");
+                        Console.WriteLine("Lo sentimos no necesitamos empleados en esa area.\n");
                         return false;
                     }
                 }
                 else
                 {
-                    Console.WriteLine("No ofrecemos ese puesto de trabajo, gracias.");
+                    Console.WriteLine("No ofrecemos ese puesto de trabajo, gracias.\n");
                     return false;
                 }
             }

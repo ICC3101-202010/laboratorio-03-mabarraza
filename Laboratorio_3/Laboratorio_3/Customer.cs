@@ -5,7 +5,6 @@ namespace Laboratorio_3
 {
     public class Customer:People,ICreditcard,IDebitcard,ICash
     {
-        protected List<string> LCustomers;
         private int PaymentMethod { get; set; }
         public int Currentmoney;
         public Customer(int Currentmoney,string name, string lastname, string id, string nationality) : base(name, lastname, id, nationality)
@@ -43,7 +42,7 @@ namespace Laboratorio_3
             }
             return false;
         }
-        /*public bool Buy() //function too determine if the person buys or not
+        public bool Buy(Product productprice) //function too determine if the person buys or not
         {
             switch (PaymentMethod) {
                 case 1:
@@ -56,9 +55,15 @@ namespace Laboratorio_3
                     Cash();
                     break;
             }
-            if ()//waiting for the other clases to be done...
+            if (Currentmoney>= productprice.Price)//waiting for the other clases to be done...
             {
-                for (int i = 0; i < 4; i++)  // if the person buys will be added to the list of customers.
+                return true;
+            }
+            else {
+                return false;
+            }
+        }
+        /*for (int i = 0; i < 4; i++)  // if the person buys will be added to the list of customers.
                 {
                     switch (i){
                         case 0:
@@ -73,13 +78,6 @@ namespace Laboratorio_3
                         case 3:
                             LCustomers.Add(nationality);
                             break;
-                    }
-                }
-                return true; // if not then i won't be added.
-            }
-            else {
-                return false;
-            }
-        }*/
+                    }*/
     }
 }

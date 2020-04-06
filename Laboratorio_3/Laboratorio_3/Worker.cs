@@ -16,6 +16,12 @@ namespace Laboratorio_3
         {
             get { return position; }
         }
+        public int Salary {
+            get { return salary; }
+        }
+        public int Schedule {
+            get { return schedule; }
+        }
     }
 }
 //3 cajeras
