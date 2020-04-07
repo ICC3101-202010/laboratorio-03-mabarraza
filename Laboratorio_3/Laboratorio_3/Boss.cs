@@ -169,5 +169,35 @@ namespace Laboratorio_3
                 }
             }
         }
+        public void ChangeInfo(Worker cambia)
+        {
+            bool verdad = true;
+            while(verdad){
+                Console.WriteLine("Seleccione una de las siguientes opciones.\n" + "1 para editar su sueldo.\n" + "2 para editar su horario de ingreso.\n" + "3 para ingresar su posicion.\n");
+                string que_cambia = Console.ReadLine();
+                if (que_cambia == "1")
+                {
+                    Console.WriteLine("Ingrese el sueldo actualizado\n ");
+                    cambia.Salary= Convert.ToInt32(Console.ReadLine());
+                    verdad = false;
+                }
+                else if (que_cambia == "2")
+                {
+                    Console.WriteLine("Ingrese el horario de ingreso actualizado\n");
+                    cambia.Schedule = Convert.ToInt32(Console.ReadLine());
+                    verdad = false;
+                }
+                else if (que_cambia == "3")
+                {
+                    Console.WriteLine("Ingrese el puesto de trabajo actualizado.\n");
+                    cambia.Position = Console.ReadLine();
+                    verdad = false;
+                }
+                else
+                {
+                    Console.WriteLine("La opcion ingresada no existe, porfavor vuelva a intentarlo");
+                }
+            }
+        }
     }
 }

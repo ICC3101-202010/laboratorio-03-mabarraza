@@ -119,7 +119,7 @@ namespace Laboratorio_3
         public static void Main(string[] args)
         {
             bool a = true;
-            //bool e = true;
+            bool e = true;
             //bool f = true;
             //bool g = true;
             //bool h = true;
@@ -129,7 +129,8 @@ namespace Laboratorio_3
             Inventory boleeta = new Inventory();
             Gualmart gual_mart = new Gualmart();
             Console.WriteLine("*****************************Bienvenido a Gualmart******************************");
-            Console.WriteLine("Presione uno de los siguientes numeros:\n"+"1 para crear productos.\n"+"2 para agregar trabajadores.\n"+"3 para agregar clientes.\n"+"4 para realizar una compra.\n"+"5 para ver las boletas de la compras hechas.\n"+"6 para ver el stock que queda de productos\n"+"7 para ejecutar la simulación(BONUS).\n"+"8 para terminar el programa.");
+            Console.WriteLine("Presione uno de los siguientes numeros:\n"+"1 para crear productos.\n"+"2 para agregar trabajadores.\n"+"3 para agregar clientes.\n"+"4 para realizar una compra.\n"+"5 para ver las boletas de la compras hechas.\n"+"6 para ver el stock que queda de productos\n"+"7 para cambiar los datos de los trabajadores.\n"+"8 para ejecutar la simulación(BONUS).\n"+"9 para terminar el programa.");
+            last:
             while (a)
             {
                 seleccion = Console.ReadLine();
@@ -148,7 +149,7 @@ namespace Laboratorio_3
                         int stockprod = Convert.ToInt32(Console.ReadLine());
                         Product userstock = new Product(nombreprod, marcaprod, precioprod, stockprod);
                         bodega.AddProduct(userstock);
-                        Console.WriteLine("¿Desea agregar mas productos?\n" + "presione y para agregar mas productos o n para continuar\n");
+                        Console.WriteLine("¿Desea agregar mas productos?\n" + "presione y para agregar mas productos o n para continuar:");
                         string masproductos = Console.ReadLine();
                         if (masproductos == "n")
                         {
@@ -159,8 +160,7 @@ namespace Laboratorio_3
                 else if (seleccion == "2")
                 {
                     bool c = true;
-                    Console.WriteLine("Al momento de asignar un rol al trabajador estas son las posibilidades:\n"+"Jefe.\n"+"Supervisor.\n"+"Cajero.\n"+"Empleado.\n"+"Auxiliar.\n");
-                    Console.WriteLine("porfavor note que todas empiezan con mayúscula");
+                    Console.WriteLine("Al momento de asignar un rol al trabajador estas son las posibilidades:\n"+"Jefe.\n"+"Supervisor.\n"+"Cajero.\n"+"Empleado.\n"+"Auxiliar.\n"+ "porfavor note que todas empiezan con mayúscula.\n");
                     while (c)
                     {
                         Console.WriteLine("Ingrese el nombre del trabajador:");
@@ -175,7 +175,7 @@ namespace Laboratorio_3
                         string rol_trabajador = Console.ReadLine();
                         Console.WriteLine("Ingrese el sueldo del trabajador:");
                         int sueldo_trabajador = Convert.ToInt32(Console.ReadLine());
-                        Console.WriteLine("Ingrese el horario del trabajador:");
+                        Console.WriteLine("Ingrese el horario de ingreso del trabajador:");
                         int horario_trabajador = Convert.ToInt32(Console.ReadLine());
                         Worker trabajador = new Worker(sueldo_trabajador, horario_trabajador, rol_trabajador, nombre_trabajador, apellido_trabajador, rut_trabajador, nacionalidad_trabajador);
                         gual_mart.AddWorker(trabajador);
@@ -184,7 +184,7 @@ namespace Laboratorio_3
                         {
                             gual_mart.AddCashier(trabajador);
                         }
-                        Console.WriteLine("¿Desea agregar mas trabajadores:?\n" + "presione y para agregar mas trabajadores o n para continuar\n");
+                        Console.WriteLine("¿Desea agregar mas trabajadores?\n" + "presione y para agregar mas trabajadores o n para continuar:");
                         string mastrabajadores = Console.ReadLine();
                         if (mastrabajadores == "n")
                         {
@@ -212,7 +212,7 @@ namespace Laboratorio_3
                         clientela.PaymentMethod = Convert.ToInt32(Console.ReadLine());
                         gual_mart.AddCustomer(clientela);
                         gual_mart.AddPerson(clientela);
-                        Console.WriteLine("¿Desea agregar mas clientes:?\n" + "presione y para agregar mas clientes o n para continuar\n");
+                        Console.WriteLine("¿Desea agregar mas clientes?\n" + "presione y para agregar mas clientes o n para continuar:");
                         string masclientes = Console.ReadLine();
                         if (masclientes == "n")
                         {
@@ -237,7 +237,7 @@ namespace Laboratorio_3
                             foreach (Product paracomprar in bodega.Lproducts)
                             {
                                 Console.WriteLine("Nombre:{0};marca:{1};stock:{2},precio:{3}.\n", paracomprar.Name, paracomprar.Brand, paracomprar.Stock, paracomprar.Price);
-                                Console.WriteLine("Presiona y para elegir  este producto, presiona n para ver la informacion del siguiente producto.");
+                                Console.WriteLine("Presiona y para elegir  este producto, presiona n para continuar:.");
                                 string producto_elegido = Console.ReadLine();
                                 if (producto_elegido == "y")
                                 {
@@ -248,7 +248,7 @@ namespace Laboratorio_3
                                         {
                                             boleeta.AddProduct(bodega.Lproducts[numero_producto]);
                                             gual_mart.AddBill(boleeta);
-                                            Console.WriteLine("¿Desea agregar mas productos al carrito:?\n" + "presione y para agregar mas productos o n para continuar\n");
+                                            Console.WriteLine("¿Desea agregar mas productos al carrito?\n" + "presione y para agregar mas productos o n para continuar");
                                             string mas_productos = Console.ReadLine();
                                             if (mas_productos == "y")
                                             {
@@ -261,7 +261,7 @@ namespace Laboratorio_3
                                         }
                                         else
                                         {
-                                            Console.WriteLine("No tienes dinero suficiente para esta compra!\n"+"¿Desea seguir buscando productos?"+ "presione y para buscar mas productos o n para continuar\n");
+                                            Console.WriteLine("No tienes dinero suficiente para esta compra!\n"+"¿Desea seguir buscando productos?"+ "presione y para buscar mas productos o n para continuar");
                                             string nocompra = Console.ReadLine();
                                             if (nocompra == "y")
                                             {
@@ -276,7 +276,7 @@ namespace Laboratorio_3
                                     else
                                     {
                                         Console.WriteLine("Revisas el estante y no encuentras el producto que buscabas...");
-                                        Console.WriteLine("¿Revisar si hay mas productos?" + "presione y para seguir buscando o n para continuar\n");
+                                        Console.WriteLine("¿Revisar si hay mas productos?" + "presione y para seguir buscando o n para continuar:");
                                         string peores_nada = Console.ReadLine();
                                         if (peores_nada == "y")
                                         {
@@ -291,7 +291,7 @@ namespace Laboratorio_3
                                 numero_producto++;
                             }
                             reset3:
-                            Console.WriteLine("¿Desea realizar compras con otra persona?"+ "presione y para elegir otra persona o n para continuar\n");
+                            Console.WriteLine("¿Desea realizar compras con otra persona?"+ "presione y para elegir otra persona o n para continuar:");
                             string otra_persona = Console.ReadLine();
                             if (otra_persona == "y")
                             {
@@ -321,7 +321,7 @@ namespace Laboratorio_3
                         }
                         else
                         {
-                            Console.WriteLine("No ha agregado ningun trabajador con el rol de cajero"+"vuelva al menu y agregue uno!");
+                            Console.WriteLine("No ha agregado ningun trabajador con el rol de cajero"+"No se puede hacer la boleta!"+"vuelva al menu y agregue uno!");
                             goto choice;
                         }
                     }
@@ -332,28 +332,68 @@ namespace Laboratorio_3
                     bodega.showstock(bodega.Lproducts);
                     Console.WriteLine("\n*****************Fin Stock Actualizado.*****************");
                 }
-                else if (seleccion == "7")
+                else if(seleccion == "7")
                 {
-                    Simulación();
+                    while (e)
+                    {
+                        foreach (Worker j in gual_mart.Lwork)
+                        {
+                            if (j.Position == "Jefe")
+                            {
+                                Boss jefesito = new Boss(j.Salary, j.Schedule, j.Position, j.Name, j.Lastname, j.ID, j.Nationality);
+                                Console.WriteLine("¿A quien quiere cambiarle la ingormación?\n");
+                                foreach (Worker g in gual_mart.Lwork)
+                                {
+                                    seleccion:
+                                    Console.WriteLine("Nombre:" + g.Name+"\n"+ "Posicion" + j.Position+"\n" + "Horario de ingreso\n" + j.Schedule+"\n" + "Sueldo\n" + j.Salary);
+                                    Console.WriteLine("Presione y para elegir a este trabajador o n para continuar");
+                                    string este = Console.ReadLine();
+                                    if (este == "y")
+                                    {
+                                    seleccion2:
+                                        jefesito.ChangeInfo(g);
+                                        Console.WriteLine("¿Desea cambiarle algo mas a este trabajador?" + " Presione y para seguir cambiando el estdo del trabajador o n para continuar:");
+                                        string este2 = Console.ReadLine();
+                                        if (este2 == "y")
+                                        {
+                                            goto seleccion2;
+                                        }
+                                        else
+                                        {
+                                            Console.WriteLine("¿Desea cambiarle algo a otro trabajador?" + " Presione y para elejir a otro trabajador o n para continuar:");
+                                            string este3 = Console.ReadLine();
+                                            if (este3 == "y")
+                                            {
+                                                goto seleccion;
+                                            }
+                                            else
+                                            {
+                                                goto choice;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        } 
+                    }
                 }
                 else if (seleccion == "8")
                 {
+                    Simulación();
+                }
+                else if (seleccion == "9")
+                {
                     a = false;
+                    goto last;
                 }
                 else
                 {
                     Console.WriteLine("El comando ingresado es incorrecto, porfavor vuelvalo a intentar");
                 }
                 choice:
-                Console.WriteLine("Presione uno de los siguientes numeros:\n" + "1 para crear productos.\n" + "2 para agregar trabajadores.\n" + "3 para agregar clientes.\n" + "4 para realizar una compra.\n" +"5 para ver las boletas de las compras hechas.\n"+"6 para ver eñ stock que queds de productos\n"+ "7 para ejecutar la simulación(BONUS).\n" + "8 para terminar el programa.");
+                Console.WriteLine("Presione uno de los siguientes numeros:\n" + "1 para crear productos.\n" + "2 para agregar trabajadores.\n" + "3 para agregar clientes.\n" + "4 para realizar una compra.\n" +"5 para ver las boletas de las compras hechas.\n"+"6 para ver el stock que queda de productos\n"+"7 para cambiar los datos de los trabajadores.\n"+ "8 para ejecutar la simulación(BONUS).\n" + "9 para terminar el programa.");
             }
-            foreach(Product p in bodega.Lproducts)
-            {
-                Console.WriteLine(p.Name);
-                Console.WriteLine(p.Brand);
-                Console.WriteLine(p.Price);
-                Console.WriteLine(p.Stock);
-            }
+            Console.WriteLine("Gracias por revisar!!");
         }
     }
 }
