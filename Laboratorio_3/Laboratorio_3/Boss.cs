@@ -169,17 +169,5 @@ namespace Laboratorio_3
                 }
             }
         }
-        /*public bool FireWorker() {
-    Random option = new Random();
-    option.Next(0, 1);
-    if (Convert.ToInt32(option) == 0)
-    {
-        return false;
-    }
-    else {
-
-    }
-}*/
-        //public bool RiseSalary() { }
     }
 }

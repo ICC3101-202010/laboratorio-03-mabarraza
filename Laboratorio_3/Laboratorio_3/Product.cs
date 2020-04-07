@@ -5,7 +5,7 @@ namespace Laboratorio_3
     {
         private string name;
         private string brand;
-        private int price;
+        private readonly int price;
         public int Stock;
         public Product(string name, string brand, int price, int Stock)
         {

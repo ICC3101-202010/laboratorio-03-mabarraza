@@ -5,7 +5,7 @@ namespace Laboratorio_3
 {
     public class Customer:People,ICreditcard,IDebitcard,ICash
     {
-        private int PaymentMethod { get; set; }
+        public int PaymentMethod { get; set; }
         public int Currentmoney;
         public Customer(int Currentmoney,string name, string lastname, string id, string nationality) : base(name, lastname, id, nationality)
         {
@@ -31,10 +31,12 @@ namespace Laboratorio_3
                 {
                     if (k.Stock == 0)
                     {
+                        //Console.WriteLine("No queda stock del articulo buscado!");
                         return false;
                     }
                     else
                     {
+                        //Console.WriteLine("Quedan: {0} articulos\n ",k.Stock);
                         k.Stock -= 1; // with this we update the stock of the object that the person just got.
                         return true;
                     }
@@ -57,27 +59,13 @@ namespace Laboratorio_3
             }
             if (Currentmoney>= productprice.Price)//waiting for the other clases to be done...
             {
+                Currentmoney -= productprice.Price;
                 return true;
             }
-            else {
+            else
+            {
                 return false;
             }
         }
-        /*for (int i = 0; i < 4; i++)  // if the person buys will be added to the list of customers.
-                {
-                    switch (i){
-                        case 0:
-                            LCustomers.Add(name);
-                            break;
-                        case 1:
-                            LCustomers.Add(lastname);
-                            break;
-                        case 2:
-                            LCustomers.Add(id);
-                            break;
-                        case 3:
-                            LCustomers.Add(nationality);
-                            break;
-                    }*/
     }
 }

@@ -24,8 +24,3 @@ namespace Laboratorio_3
         }
     }
 }
-//3 cajeras
-//1 auxiliar
-//1 jefe
-//1 supervisor
-//1 empleado.

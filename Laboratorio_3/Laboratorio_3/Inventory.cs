@@ -9,15 +9,16 @@ namespace Laboratorio_3
         public Inventory()
         {
         }
-        public void AddProduct(string nm, string br, int pr, int stk) {
-            Product inventoryadd = new Product(nm, br, pr, stk);
-            Lproducts.Add(inventoryadd);
+        public void AddProduct(Product inventario) {
+            Lproducts.Add(inventario);
         }
-        /*public bool RemoveProduct(bool comprado) {
-            if (comprado)
+        public void showstock(List<Product>st_ock) {
+            foreach(Product s in st_ock)
             {
-                Lproducts.
+                Console.WriteLine("Nombre del producto:{0}", s.Name);
+                Console.WriteLine("Marca del producto:{0}", s.Brand);
+                Console.WriteLine("Stock del producto:{0}", s.Stock);
             }
-        }*/
+        }
     }
 }
